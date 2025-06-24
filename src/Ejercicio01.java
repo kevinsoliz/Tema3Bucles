@@ -7,8 +7,8 @@ public class Ejercicio01 {
 
         byte edad = pedirEdad(sc);
 
-        byte edadMax = 0;
-        byte edadMin = 100;
+        byte edadMax = edad;
+        byte edadMin = edad;
 
         while(edad != -1){
             if(edad > edadMax)
