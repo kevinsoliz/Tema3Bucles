@@ -4,16 +4,19 @@ import java.util.Scanner;
 public class Ejercicio04 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        byte numAdivinando = pedirNumero(sc);
+        byte numAdivinando = 0;
         byte numAleatorio = numeroAleatorio();
-        String mensaje = verificar(numAleatorio, numAdivinando);
-        System.out.println(mensaje);
+        String mensaje = "";
 
-        while (!(mensaje.equals("Has acertado!")) && numAdivinando != -1){ //Había puesto OR al principio, mientras que una sea verdadera el bucle va a seguir.
+        byte numberFallos = 0;
+
+        do {
             numAdivinando = pedirNumero(sc);
             mensaje = verificar(numAleatorio, numAdivinando);
+            if(!(mensaje.equals("Has acertado!")))
+                numberFallos++;
             System.out.println(mensaje);
-        }
+        } while (!(mensaje.equals("Has acertado!")) && numAdivinando != -1 && numberFallos != 3);
 
     }
     public static byte pedirNumero(Scanner sc){
