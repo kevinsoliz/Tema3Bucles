@@ -5,8 +5,9 @@ public class Ejercicio06 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        short sumaAleatoria = 0;
-        short respuesta = 0;
+        short sumaAleatoria;
+        short respuesta;
+        byte numOperaciones = 0;
 
         do {
             byte numAle1 = generarNumAleatorio();
@@ -14,11 +15,14 @@ public class Ejercicio06 {
             sumaAleatoria = (short) (numAle1 + numAle2);
             System.out.print(numAle1 + " + " + numAle2 + " = ");
             respuesta = pedirRespuesta(sc);
-            if (verificarRespuesta(respuesta, sumaAleatoria))
+            if (verificarRespuesta(respuesta, sumaAleatoria)){
                 System.out.println("Correcto!");
+                numOperaciones++;
+            }
             else
                 System.out.println("Incorrecto!");
         } while (verificarRespuesta(respuesta, sumaAleatoria));
+        System.out.println("Operaciones acertadas: " + numOperaciones);
 
     }
 
