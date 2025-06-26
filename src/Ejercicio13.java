@@ -12,5 +12,12 @@ public class Ejercicio13 {
             System.out.println(guarismo);
             numero /= 10;
         }
+        /*
+        do{
+            guarismo = (byte)(numero % 10);
+            System.out.println("El guarismo es: " + guarismo);
+            numero /= 10;
+        }while (numero > 0);
+         */
     }
 }
