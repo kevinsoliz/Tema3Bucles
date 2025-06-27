@@ -8,11 +8,12 @@ public class Ejer3 {
         System.out.print("Ingrese el valor del numero: ");
         byte numFilasYColumnas = sc.nextByte();
 
-        for (int i = 0; i < numFilasYColumnas; i++) {
-            for (int j = 0; j <= i; j++) {
-                for(int k = i; k < numFilasYColumnas; k++) {
-                    System.out.print("^ ");
-                }
+        for (int i = 0; i < numFilasYColumnas; i++){
+
+            for (int j = i; j < numFilasYColumnas; j++){
+                System.out.print("  ");
+            }
+            for (int k = 0; k <= i; k++){
                 System.out.print("* ");
             }
             System.out.println();
