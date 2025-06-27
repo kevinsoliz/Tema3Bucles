@@ -2,9 +2,14 @@ package Practica;
 
 import java.text.NumberFormat;
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Ejer1 {
+
+
+    private static int indice = 0; //porque si lo incluimos en el método, al llamarlo otra vez se reiniciaría a cero
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double cuantia = 0;
@@ -15,7 +20,8 @@ public class Ejer1 {
             total += cuantia;
         } while (cuantia != 0);
 
-        System.out.println("Cuantia total: " + NumberFormat.getCurrencyInstance().format(total));
+        System.out.println("Cuantia total: " + NumberFormat.getCurrencyInstance(Locale.FRANCE).format(total));
+        System.out.println("Indice: " + indice);
     }
 
     public static float pedirCuantia(String prompt, Scanner sc){
@@ -37,8 +43,15 @@ public class Ejer1 {
     }
 
     public static String generarMensaje(){
-        String [] prompts = { "Cantidad de dinero en el banco", "Cantidad de dinero en la ucha", "Cuánto tienes en los cajones", "Cuánto encuentras en los bolsillos"};
-        byte numAleatorio = (byte)(Math.random()*4);
-        return prompts[numAleatorio];
+        String[] prompts = {
+                "Cantidad de dinero en el banco",
+                "Cantidad de dinero en la ucha",
+                "Cuánto tienes en los cajones",
+                "Cuánto encuentras en los bolsillos"
+        };
+        String mensaje = prompts[indice]; //De esta manera empieza en 0
+        indice = (indice + 1) % prompts.length; // el modulo se queda con la parte entera y devuelve el resto.
+                                                // Ha sumado 1, está listo para la siguiente llamada.
+        return mensaje;
     }
 }
