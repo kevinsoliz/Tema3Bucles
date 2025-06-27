@@ -11,7 +11,7 @@ public class Ejer3 {
         for (int i = 0; i < numFilasYColumnas; i++){
 
             for (int j = i; j < numFilasYColumnas; j++){
-                System.out.print("  ");
+                System.out.print(" ");
             }
             for (int k = 0; k <= i; k++){
                 System.out.print("* ");
